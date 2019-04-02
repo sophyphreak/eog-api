@@ -25,7 +25,7 @@ const populateDroneData = () => {
     timestamp -= 4;
     secondsLeft -= 4;
   }
-  return data;
+  return { data };
 }
 
 const incrementMetric = currentMetric => currentMetric + (Math.random() * 2 - 1);
