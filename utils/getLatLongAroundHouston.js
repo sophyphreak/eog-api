@@ -1,7 +1,5 @@
 const getLatLongAroundHouston = timestamp => {
-  const secondOfTheHour = (timestamp / 2) * Math.PI;
-  // secondOfTheHour should be between 0 and 3599
-  const theta = (-secondOfTheHour / 450) * Math.PI;
+  const theta = -timestamp / 500;
   const radius = 5; // about 500km
   const x = radius * Math.cos(theta);
   const y = radius * Math.sin(theta);
