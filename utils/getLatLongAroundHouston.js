@@ -3,9 +3,9 @@ const getLatLongAroundHouston = secondOfTheHour => { // secondOfTheHour should b
   const radius = 5; // about 500km
   const x = radius * Math.cos(theta);
   const y = radius * Math.sin(theta);
-  const lat = y + 29.761993;
-  const long = x - 95.366302;
-  return { lat, long };
+  const latitude = y + 29.761993;
+  const longitude = x - 95.366302;
+  return { latitude, longitude };
 };
 
 module.exports = { getLatLongAroundHouston };
