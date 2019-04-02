@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api/drone', (req, res) => {
-  res.json(getDroneData());
+  res.send(req.app.locals.droneData);
 })
 
 module.exports = router;
