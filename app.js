@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var { populateDroneData } = require('./utils/populateDroneData');
+var { incrementDroneData } = require('./utils/incrementDroneData');
+var { incrementMetric } = require('./utils/incrementMetric');
 
 var app = express();
 
@@ -40,6 +42,11 @@ app.use(function(err, req, res, next) {
 });
 
 app.locals.droneData = populateDroneData();
-app.locals.lastMetric = 275;
+app.locals.metric = 275;
+
+setInterval(() => {
+  app.locals.metric = incrementMetric(app.locals.metric);
+  app.locals.droneData = incrementDroneData(app.locals.droneData, app.locals.metric);
+}, 4000);
 
 module.exports = app;
