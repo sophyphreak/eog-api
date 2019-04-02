@@ -1,6 +1,7 @@
 const moment = require('moment');
 const { getLatLongAroundHouston } = require('./getLatLongAroundHouston');
 const { getUom } = require('./getUom');
+const { incrementMetric } = require('./incrementMetric');
 const { getAccuracy } = require('./getAccuracy');
 
 const populateDroneData = () => {
@@ -27,8 +28,5 @@ const populateDroneData = () => {
   }
   return { data };
 };
-
-const incrementMetric = currentMetric =>
-  currentMetric + (Math.random() * 2 - 1);
 
 module.exports = { populateDroneData };
