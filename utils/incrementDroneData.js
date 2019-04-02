@@ -6,13 +6,13 @@ const { getAccuracy } = require('./getAccuracy');
 
 const incrementDroneData = droneData => {
   const { data } = droneData;
-  const timestamp = moment().valueOf();
+  const timestamp = moment().unix();
   const metric = incrementMetric(data[0].metric);
-  const { latitude, longitude } = getLatLongAroundHouston(timestamp % 3600000);
+  const { latitude, longitude } = getLatLongAroundHouston(timestamp);
   const uom = getUom();
   const accuracy = getAccuracy();
   data.unshift({
-    timestamp,
+    timestamp: timestamp * 1000,
     metric,
     latitude,
     longitude,
