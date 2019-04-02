@@ -7,12 +7,14 @@ const { getAccuracy } = require('./getAccuracy');
 const populateDroneData = () => {
   const data = [];
   let metric = 275;
-  let secondsLeft = 1800;
-  let timestamp = moment().unix();
+  let secondsLeft = 1800000;
+  let timestamp = moment().valueOf();
   let uom = getUom();
   let accuracy;
   while (secondsLeft > 0) {
-    const { latitude, longitude } = getLatLongAroundHouston(timestamp % 3600);
+    const { latitude, longitude } = getLatLongAroundHouston(
+      timestamp % 3600000
+    );
     metric = incrementMetric(metric);
     accuracy = getAccuracy();
     data.push({
@@ -23,8 +25,8 @@ const populateDroneData = () => {
       uom,
       accuracy
     });
-    timestamp -= 4;
-    secondsLeft -= 4;
+    timestamp -= 4000;
+    secondsLeft -= 4000;
   }
   return { data };
 };
