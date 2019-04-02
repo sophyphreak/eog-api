@@ -1,4 +1,5 @@
-const getLatLongAroundHouston = secondOfTheHour => { // secondOfTheHour should be between 0 and 3599
+const getLatLongAroundHouston = secondOfTheHour => {
+  // secondOfTheHour should be between 0 and 3599
   const theta = (-secondOfTheHour / 450) * Math.PI;
   const radius = 5; // about 500km
   const x = radius * Math.cos(theta);

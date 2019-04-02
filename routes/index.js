@@ -8,6 +8,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/api/drone', (req, res) => {
   res.send(req.app.locals.droneData);
-})
+});
 
 module.exports = router;
