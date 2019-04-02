@@ -1,6 +1,6 @@
 const moment = require('moment');
 const { incrementMetric } = require('./incrementMetric');
-const { getUom } = require('getUom');
+const { getUom } = require('./getUom');
 const { getAccuracy } = require('./getAccuracy');
 
 const incrementDroneData = droneData => {
